@@ -1,0 +1,99 @@
+{
+  "questions": [
+    {
+      "question": "What is the core UI update mechanism in React?",
+      "options": ["Shadow DOM", "Virtual DOM", "Real DOM", "Manual DOM"],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "Which hook manages local component state?",
+      "options": ["useEffect", "useReducer", "useState", "useRef"],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "What is the syntax extension for JavaScript used in React?",
+      "options": ["JSON", "HTML", "JSX", "XML"],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "How is data passed from parent to child?",
+      "options": ["State", "Props", "Context", "Ref"],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "Which hook handles side effects?",
+      "options": ["useState", "useMemo", "useEffect", "useCallback"],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "What attribute identifies unique list items?",
+      "options": ["Id", "Key", "Index", "Ref"],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "Which command creates a new React project?",
+      "options": [
+        "npm start",
+        "npx create-react-app",
+        "npm build",
+        "react-init"
+      ],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "Which hook accesses DOM elements directly?",
+      "options": ["useRef", "useState", "useContext", "useMemo"],
+      "correctOption": 0,
+      "points": 10
+    },
+    {
+      "question": "What optimizes performance by memoizing components?",
+      "options": ["React.memo", "React.state", "React.effect", "React.prop"],
+      "correctOption": 0,
+      "points": 10
+    },
+    {
+      "question": "What allows grouping elements without extra nodes?",
+      "options": ["Div", "Span", "Fragment", "Section"],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "Which library manages navigation in React?",
+      "options": ["Axios", "Redux", "React Router", "Mongoose"],
+      "correctOption": 2,
+      "points": 10
+    },
+    {
+      "question": "What is the state management tool for global data?",
+      "options": ["Props", "Context API", "UseEffect", "Local Storage"],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "What happens to a component when state updates?",
+      "options": ["Reload", "Re-render", "Unmount", "Crash"],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "What type of data flow does React use?",
+      "options": ["Bidirectional", "Unidirectional", "Random", "Circular"],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "Which tool inspects React components in browsers?",
+      "options": ["Babel", "Webpack", "React DevTools", "Node.js"],
+      "correctOption": 2,
+      "points": 10
+    }
+  ]
+}
