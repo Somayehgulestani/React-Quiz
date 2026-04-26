@@ -1,0 +1,126 @@
+body {
+  background-color: #9894947f;
+}
+
+.loader-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  height: 100px;
+}
+
+.loader-dots div {
+  width: 13px;
+  height: 13px;
+  background-color: #050505;
+  border-radius: 50%;
+  animation: bounce 0.6s infinite alternate;
+}
+
+.loader-dots div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loader-dots div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-15px);
+    opacity: 0.3;
+  }
+}
+
+.container {
+  text-align: center;
+}
+
+.btn {
+  color: #fff;
+  font-size: 1rem;
+  border: 2px solid #495057;
+  background-color: #495057;
+  padding: 0.6rem 1.6rem;
+  cursor: pointer;
+  border-radius: 100px;
+  transition: all 0.3s;
+  margin-top: 20px;
+}
+
+.btn:active {
+  transform: translateY(2px);
+}
+
+/* .options {
+  display: block;
+}
+.questions-box {
+  dispaly: flex;
+  flex-direction: row;
+
+} */
+
+.questions-box {
+  background-color: #343a40; /* یک پس‌زمینه تیره و مدرن */
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* سایه ملایم برای عمق دادن */
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column; /* چیدمان عمودی برای سوال و گزینه‌ها */
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 600px; /* جلوگیری از کشیده شدن بیش از حد */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* استایل برای خود متن سوال */
+.questions-box h4 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0rem;
+  color: #f8f9fa;
+}
+
+/* اصلاح بخش گزینه‌ها برای چیدمان عمودی و منظم */
+.options {
+  padding: 10px;
+  width: 100%;
+  text-align: left;
+  background-color: #495057;
+  color: #f8f9fa;
+  border: 2px solid #495057;
+  font-size: 0.8rem;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.next-btn {
+  background-color: #bcc1c6;
+  color: #f8f9fa;
+  border: 2px solid #495057;
+  font-size: 0.8rem;
+  border-radius: 100px;
+  padding: 10px;
+  width: 20%;
+  margin-left: auto;
+}
+
+.score {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  color: #fff;
+  /* font-size: 1.5rem; */
+  display: flex;
+  justify-content: space-between;
+}
