@@ -1,7 +1,10 @@
 // import { type } from "@testing-library/user-event/dist/type";
 import React from "react";
 
-function Questions({ questions, choice, dispatch, index }) {
+function Questions({ questions, answer, dispatch, index, point, time }) {
+  const mins = Math.floor(time / 60);
+  const second = time % 60;
+
   const res = questions.map((v) => {
     return v;
   });
@@ -14,7 +17,7 @@ function Questions({ questions, choice, dispatch, index }) {
         <p>
           Question: {index + 1}/ {questions.length}
         </p>
-        <p>Point: 0</p>
+        <p>Point: {point}</p>
       </div>
 
       <>
@@ -23,23 +26,28 @@ function Questions({ questions, choice, dispatch, index }) {
             className="options"
             key={i}
             onClick={() => {
-              return dispatch({ type: "choice", payload: "" });
+              return dispatch({ type: "setanswer", payload: i });
             }}
           >
             {v}
           </button>
         ))}
       </>
-      {choice !== null && (
-        <button
-          className="next-btn"
-          onClick={() => {
-            dispatch({ type: "next", payload: index + 1 });
-          }}
-        >
-          Next
-        </button>
-      )}
+      <div className="time-btn">
+        <span className="time">
+          {String(mins).padStart(2, "0")}:{String(second).padStart(2, "0")}
+        </span>
+        {answer !== null && (
+          <button
+            className="next-btn"
+            onClick={() => {
+              dispatch({ type: "next", payload: index + 1 });
+            }}
+          >
+            Next
+          </button>
+        )}
+      </div>
     </div>
   );
 }

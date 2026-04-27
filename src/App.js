@@ -4,12 +4,15 @@ import Header from "./Header";
 import Main from "./Main";
 import Loader from "./loader";
 import Questions from "./Questions";
+import Finished from "./Finished";
 
 const intialState = {
   questions: [],
   status: "",
-  choice: null,
+  answer: null,
   index: 0,
+  point: 0,
+  time: 200,
 };
 
 function reducer(state, action) {
@@ -20,10 +23,30 @@ function reducer(state, action) {
       return { ...state, status: "loading" };
     case "start":
       return { ...state, status: "start" };
-    case "choice":
-      return { ...state, choice: action.payload };
+    case "setanswer": {
+      const correct =
+        action.payload === state.questions[state.index].correctOption;
+      const questionPoints = state.questions[state.index]?.points || 0;
+
+      return {
+        ...state,
+        answer: action.payload,
+        point: state.point + (correct ? questionPoints : 0),
+      };
+    }
+
     case "next":
-      return { ...state, index: action.payload, choice: null };
+      return { ...state, index: action.payload, answer: null };
+
+    case "timer":
+      return {
+        ...state,
+        time: state.time - 1,
+        status: state.time <= 0 ? "active" : state.status,
+      };
+    case "try":
+      return { ...state, status: "ready", time: 200 };
+
     default:
       return state;
   }
@@ -31,7 +54,17 @@ function reducer(state, action) {
 
 function App() {
   const [state, dispatch] = useReducer(reducer, intialState);
-  const { status, questions, choice, index } = state;
+  const { status, questions, answer, index, point, time } = state;
+
+  useEffect(() => {
+    const time = setInterval(() => {
+      if (status !== "start") return;
+      dispatch({ type: "timer" });
+    }, 1000);
+    return function () {
+      clearInterval(time);
+    };
+  }, [status]);
 
   useEffect(() => {
     dispatch({ type: "loading" });
@@ -51,14 +84,20 @@ function App() {
         {status === "ready" && (
           <Description questions={questions} dispatch={dispatch} />
         )}
-        {status === "start" && (
+        {status === "start" && questions[index] && (
           <Questions
             questions={questions}
-            choice={choice}
+            answer={answer}
             dispatch={dispatch}
             index={index}
+            point={point}
+            time={time}
           />
         )}
+        {status === "active" && (
+          <Finished status={status} dispatch={dispatch} />
+        )}
+        {/* {status !=="active" && status !=="start" && <result/>} */}
       </Main>
     </div>
   );
