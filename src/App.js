@@ -5,6 +5,7 @@ import Main from "./Main";
 import Loader from "./loader";
 import Questions from "./Questions";
 import Finished from "./Finished";
+import Result from "./result";
 
 const intialState = {
   questions: [],
@@ -45,8 +46,9 @@ function reducer(state, action) {
         status: state.time <= 0 ? "active" : state.status,
       };
     case "try":
-      return { ...state, status: "ready", time: 200 };
-
+      return { ...state, status: "ready", time: 200, index: 0, point: 0 };
+    case "result":
+      return { ...state, status: "result" };
     default:
       return state;
   }
@@ -92,12 +94,13 @@ function App() {
             index={index}
             point={point}
             time={time}
+            status={status}
           />
         )}
         {status === "active" && (
           <Finished status={status} dispatch={dispatch} />
         )}
-        {/* {status !=="active" && status !=="start" && <result/>} */}
+        {status === "result" && <Result />}
       </Main>
     </div>
   );
