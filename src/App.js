@@ -49,6 +49,8 @@ function reducer(state, action) {
       return { ...state, status: "ready", time: 200, index: 0, point: 0 };
     case "result":
       return { ...state, status: "result" };
+    case "result":
+      return { ...state, status: "result" };
     default:
       return state;
   }
@@ -100,7 +102,7 @@ function App() {
         {status === "active" && (
           <Finished status={status} dispatch={dispatch} />
         )}
-        {status === "result" && <Result />}
+        {status === "result" && <Result point={point} dispatch={dispatch} />}
       </Main>
     </div>
   );
